@@ -1,0 +1,86 @@
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+    }
+
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #020D19;
+    color: white;
+    transition: ease-in 1.5s linear;
+    transition-property: color, background-color;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: relative;
+
+    .theme {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        margin: 0;
+
+    }
+}
+
+.wrapper {
+    border-radius: 20px;
+    background-color: gray;
+    max-width: 600px;
+    margin: 15px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: ease-in 1.5s linear;
+    transition-property: color, background-color;
+    padding: 20px;
+
+    .hello {
+        font-size: 2rem;
+        margin-block: 2rem;
+
+        .message {
+            color: red;
+        }
+    }
+}
+
+.lightWapper {
+    background-color: rgba(0, 65, 185, 0.555);
+}
+
+
+h1 {
+    font-size: 2rem;
+    margin-block: 2rem;
+}
+
+button, .button {
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    padding: 10px 30px;
+    margin: 20px;
+    background-color: gray;
+    color: white;
+    font-weight: 700;
+    border: 1px solid #020D19;
+}
+
+
+
+.ligthTheme {
+    background-color: rgba(255, 255, 255, 0.747);
+    color: rgba(11, 0, 61, 0.774);
+}
+
+.lightBtn {
+    background-color: rgba(0, 65, 185, 0.555);
+    border: 1px solid white;
+}
