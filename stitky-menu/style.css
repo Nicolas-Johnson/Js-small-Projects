@@ -33,7 +33,11 @@ body {
         justify-content: flex-start;
         align-items: flex-end;
         padding: 20px 20px;
-        position: sticky;
+
+        nav.sticky {
+            position: sticky;
+            top: 50px;
+        }
 
         ul {
             display: flex;
@@ -72,8 +76,18 @@ body {
         /* border: 1px solid white; */
         padding: 0 20px;
 
-        .item {
+        .section {
             max-width: 60%;
         }
+    }
+}
+
+.active {
+    background-color: rgba(0, 65, 185, 0.555);
+    color: white;
+
+    &:hover {
+        background-color: aqua;
+        color: black;
     }
 }
