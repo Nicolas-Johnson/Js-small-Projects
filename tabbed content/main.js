@@ -5,15 +5,19 @@ const label1 = document.querySelector('#label1');
 const label2 = document.querySelector('#label2');
 const label3 = document.querySelector('#label3');
 
+const creatParagraph = (string) => {
+    const paragraph = document.createElement('p');
+    paragraph.innerHTML = string;
+    return paragraph;
+}
+
 const creatSection = (object) => {
     const {id, title, text, className} = object;
     const section = document.createElement('section');
     section.classList.add(className);
     section.id = id;
-    section.innerHTML = `
-        <h1>${title}</h1>
-        <p>${text}</p>
-    `;
+    section.innerHTML = `<h1>${title}</h1>`;
+    text.forEach(paragraph => {section.appendChild(creatParagraph(paragraph))})
     console.log(section);
     return section;
 }
