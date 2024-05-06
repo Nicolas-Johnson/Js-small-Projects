@@ -1,9 +1,10 @@
 import { conteudo } from './content.js';
 
 const wrapper = document.querySelector('.wrapper');
-const label1 = document.querySelector('#label1');
-const label2 = document.querySelector('#label2');
-const label3 = document.querySelector('#label3');
+const nav = document.querySelector('.sticky');
+const lable1 = document.querySelector('#lable1');
+const lable2 = document.querySelector('#lable2');
+const lable3 = document.querySelector('#lable3');
 
 const creatParagraph = (string) => {
     const paragraph = document.createElement('p');
@@ -18,16 +19,20 @@ const creatSection = (object) => {
     section.id = id;
     section.innerHTML = `<h1>${title}</h1>`;
     text.forEach(paragraph => {section.appendChild(creatParagraph(paragraph))})
-    console.log(section);
+    // console.log(section);
     return section;
 }
 
-const appendSection = (sectionObject) => {
+const appendSection = (e, sectionObject) => {
     const section = creatSection(sectionObject);
+    const link = e.target;
+    const links = nav.querySelectorAll('a');
+    links.forEach(link => link.classList.remove('active'));
+    link.classList.toggle('active');
     wrapper.innerHTML = '';
     wrapper.appendChild(section);
 };
 
-label1.addEventListener('click', () => appendSection(conteudo[0]));
-label2.addEventListener('click', () => appendSection(conteudo[1]));
-label3.addEventListener('click', () => appendSection(conteudo[2]));
+lable1.addEventListener('click', (e) => appendSection(e, conteudo[0]));
+lable2.addEventListener('click', (e) => appendSection(e, conteudo[1]));
+lable3.addEventListener('click', (e) => appendSection(e, conteudo[2]));
