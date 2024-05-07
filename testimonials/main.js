@@ -2,6 +2,11 @@ import { data } from './public/data.js';
 
 const testimonials = document.querySelector('.testimonials');
 
+const showData = {
+    start: 0,
+    end: 5
+};
+
 const creatCard = (card) => {
     const { name, testimonial, title, headshot } = card;
     const cardElement = document.createElement('div');
@@ -32,13 +37,22 @@ const creatCard = (card) => {
     return cardElement;
 };
 
-const appendCard = (data) => {
-    data.forEach(card => testimonials.appendChild(creatCard(card)));
+const appendCard = (data, start, end) => {
+    const dataToShow = data.slice(start, end)
+    dataToShow.forEach(card => testimonials.appendChild(creatCard(card)));
 };
 
 const useWindowWith = () => {
-    testimonials.innerHTML = '';
-    appendCard(data);
+    const {start, end} = showData;
+    const screenWidth = window.screen.width;
+    if(screenWidth < 1440) {
+        testimonials.innerHTML = '';
+        appendCard(data, start, end);
+    } else if (screenWidth < 1200) {
+        end = 3;
+        testimonials.innerHTML = '';
+        appendCard(data, start, end);
+    }
 };
 
 window.addEventListener('resize', () => useWindowWith());

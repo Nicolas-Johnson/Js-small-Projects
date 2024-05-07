@@ -17,11 +17,13 @@ body {
     position: relative;
     display: flex;
     flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
 
 
     .wrapper {
         display: flex;
-        flex-flow: column wrap;
+        flex-flow: row wrap;
         justify-content: center;
         align-items: center;
         min-width: 90%;
@@ -29,12 +31,23 @@ body {
         margin:  0 auto;
         padding: 30px;
 
+        .show {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: aqua;
+            color: black;
+            font-weight: 900;
+            margin-top: 70px;
+            cursor: pointer;
+        }
+
         .testimonials {
             display: flex;
             flex-flow: row nowrap;
             flex: 1 0 150;
-            justify-content: flex-start;
-            align-items: start;
+            justify-content: center;
+            align-items: center;
             padding: 10px;
             gap: 20px;
             width: 90%;
