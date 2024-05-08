@@ -1,10 +1,12 @@
 import { data } from './public/data.js';
 
 const testimonials = document.querySelector('.testimonials');
+const nextBtn = document.querySelector('.js-next');
+const beforeBtn = document.querySelector('.js-before');
 
-const showData = {
+let indexOfData = {
     start: 0,
-    end: 5
+    end: 4
 };
 
 const creatCard = (card) => {
@@ -37,22 +39,60 @@ const creatCard = (card) => {
     return cardElement;
 };
 
+
 const appendCard = (data, start, end) => {
     const dataToShow = data.slice(start, end)
+    testimonials.innerHTML = '';
     dataToShow.forEach(card => testimonials.appendChild(creatCard(card)));
 };
 
-const useWindowWith = () => {
-    const {start, end} = showData;
+const useWindowWith = (showData) => {
+    let {start, end} = showData;
     const screenWidth = window.screen.width;
-    if(screenWidth < 1440) {
-        testimonials.innerHTML = '';
-        appendCard(data, start, end);
-    } else if (screenWidth < 1200) {
-        end = 3;
-        testimonials.innerHTML = '';
-        appendCard(data, start, end);
+    console.log(screenWidth);
+    if (screenWidth <= 750) {
+        end = 1;
+        showData = {start, end};
+    } else if (screenWidth > 750 && screenWidth <= 1200) {
+        end = 2;
+        showData = {start, end};
     }
+
+    appendCard(data, start, end);
 };
 
-window.addEventListener('resize', () => useWindowWith());
+const handleNextData = () => {
+    let {start, end} = showData;
+
+    if (end > ) {
+        testimonials.innerHTML = '';
+        start += end;
+        end += end;
+        showData = {start, end};
+        useWindowWith(showData);
+        console.log('next');
+    }
+    
+};
+/*
+the nex and before handler will only change de indexOfData atributs and call the dataApeend functions.
+
+const handleBeforeData = () => {
+    let {start, end} = showData;
+    if(star > end) {
+        testimonials.innerHTML = '';
+        start -= end;
+        end -= end;
+        showData = {start, end};
+        useWindowWith(showData);
+        console.log('before');
+    }
+    
+};
+*/
+
+//If we try using the index of the array?
+
+nextBtn.addEventListener('click', () => handleNextData());
+beforeBtn.addEventListener('click', () => handleBeforeData());
+window.addEventListener('load', () => useWindowWith());
