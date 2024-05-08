@@ -1,0 +1,150 @@
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+
+body {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 18px;
+    background-color: #020D19;
+    color: white;
+
+    .wrapper {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        margin:  0 auto;
+        padding: 20px;
+        width: 90%;
+        height: 800px;    
+        
+        .navBtn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: aqua;
+            color: #020D19;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #020D19;
+                color: aqua;
+                border: 1px solid white;
+            }
+        }
+
+        .testimonials {
+            display: flex;
+            flex-flow: row nowrap;
+            flex: 1 0 150;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 10px;
+            gap: 20px;
+            max-width: 90%;
+            min-height: 100%;
+            overflow-y: hidden;
+            scrollbar-width: none;
+            margin: 0 auto;
+
+            .card {
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: flex-end;
+                align-items: flex-start;
+                border: 1px solid white;
+                border-radius: 10px;
+                padding: 10px;
+                min-width: 350px;
+                max-width: 350px;
+                height: 400px;
+                position: relative;
+                background-color: aliceblue;
+                color: black;
+
+                img {
+                    width: 90px;
+                    height: 90px;
+                    max-height: 100%;
+                    max-width: 100%;
+                    border-radius: 50%;
+                    background-repeat: none;
+                    background-position: top center;
+                    background-size: cover;
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+
+                .decription {
+                    display: flex;
+                    flex-flow: column wrap;
+                    padding: 20px;
+                    justify-content: flex-end;
+                    align-items: start;
+
+                    .titles {
+                        display: flex;
+                        flex-flow: column wrap;
+                        justify-content: flex-end;
+                    }
+
+                }
+            }
+        }
+
+    }
+    @media (width <= 850px) {
+        font-size: .9rem;
+        .wrapper{
+            padding: 10px;
+            width: 100%;
+    
+            .navBtn {
+                width: 20px;
+                height: 20px;
+                font-size: .9rem;
+            }
+
+            .testimonials {
+
+                .card {
+                    min-width: 300px;
+                    max-width: 300px;
+                }
+            }
+
+        }
+    }
+
+    @media (width <= 450px) {
+        font-size: .8rem;
+        .wrapper{
+
+            .testimonials {
+
+                .card {
+                    min-width: 250px;
+                    max-width: 250px;
+                }
+            }
+
+        }
+    }
+}
