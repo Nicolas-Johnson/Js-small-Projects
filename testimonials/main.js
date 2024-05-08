@@ -39,6 +39,7 @@ const appendCard = (data) => {
 };
 
 const handleScrowY = (e) => {
+  testimonials.style.scrollBehavior="smooth"
   e.preventDefault();
   testimonials.scrollLeft += e.deltaY;
 };
