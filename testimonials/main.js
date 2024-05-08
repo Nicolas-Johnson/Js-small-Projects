@@ -1,13 +1,8 @@
 import { data } from './public/data.js';
 
 const testimonials = document.querySelector('.testimonials');
-const nextBtn = document.querySelector('.js-next');
-const beforeBtn = document.querySelector('.js-before');
-
-let indexOfData = {
-    start: 0,
-    end: 4
-};
+const nextBtn = document.querySelector('.button-next');
+const prevBtn = document.querySelector('.button-prev');
 
 const creatCard = (card) => {
     const { name, testimonial, title, headshot } = card;
@@ -39,60 +34,27 @@ const creatCard = (card) => {
     return cardElement;
 };
 
-
-const appendCard = (data, start, end) => {
-    const dataToShow = data.slice(start, end)
-    testimonials.innerHTML = '';
-    dataToShow.forEach(card => testimonials.appendChild(creatCard(card)));
+const appendCard = (data) => {
+    data.forEach(card => testimonials.appendChild(creatCard(card)));
 };
 
-const useWindowWith = (showData) => {
-    let {start, end} = showData;
-    const screenWidth = window.screen.width;
-    console.log(screenWidth);
-    if (screenWidth <= 750) {
-        end = 1;
-        showData = {start, end};
-    } else if (screenWidth > 750 && screenWidth <= 1200) {
-        end = 2;
-        showData = {start, end};
-    }
-
-    appendCard(data, start, end);
+const handleScrowY = (e) => {
+  e.preventDefault();
+  testimonials.scrollLeft += e.deltaY;
 };
 
-const handleNextData = () => {
-    let {start, end} = showData;
+const handleBtnscroll = (side) => {
+  testimonials.style.scrollBehavior="smooth"
+  const screnSize = window.screen.width;
+  if(side === 'next'){
+    testimonials.scrollLeft += screnSize - (screnSize * 0.23);
+  } else {
+    testimonials.scrollLeft -= screnSize - (screnSize * 0.23); 
+  }
 
-    if (end > ) {
-        testimonials.innerHTML = '';
-        start += end;
-        end += end;
-        showData = {start, end};
-        useWindowWith(showData);
-        console.log('next');
-    }
-    
-};
-/*
-the nex and before handler will only change de indexOfData atributs and call the dataApeend functions.
+}
 
-const handleBeforeData = () => {
-    let {start, end} = showData;
-    if(star > end) {
-        testimonials.innerHTML = '';
-        start -= end;
-        end -= end;
-        showData = {start, end};
-        useWindowWith(showData);
-        console.log('before');
-    }
-    
-};
-*/
-
-//If we try using the index of the array?
-
-nextBtn.addEventListener('click', () => handleNextData());
-beforeBtn.addEventListener('click', () => handleBeforeData());
-window.addEventListener('load', () => useWindowWith());
+window.addEventListener('load', () => appendCard(data));
+testimonials.addEventListener('wheel', (e) => handleScrowY(e));
+nextBtn.addEventListener('click', () => handleBtnscroll('next'));
+prevBtn.addEventListener('click', () => handleBtnscroll('prev'));
