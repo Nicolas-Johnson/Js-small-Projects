@@ -1,0 +1,127 @@
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 18px;
+    background-color: #020D19;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+
+    header {
+        display: flex;
+        flex-flow: column wrap;
+        width: 40%;
+        margin-top: 50px;
+        padding: 20px;
+    }
+
+    .wrapper {
+        width: 40%;
+        margin-top: 50px;
+        padding: 20px;
+        /* display: flex;
+        justify-content: flex-end;
+        align-items: end; */
+
+        form {
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 20px;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #020D19;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+            input, textarea {
+                padding: 10px ;
+                border-radius: 20px;
+                border: none;
+                box-shadow: inset -5px -5px 9px #031120, inset 5px 5px 9px #01080f;
+                background-color: #020D19;
+                color: white;
+                font-weight: 700;
+                &:focus {
+                    outline: none;
+                    border: none;
+                    box-shadow: inset -5px -5px 9px #031120, inset 5px 5px 9px #01080f;
+                    background-color: #020D19;
+                }
+                &:active {
+                    border: none;
+                    outline: none;
+                    box-shadow: inset -5px -5px 9px #031120, inset 5px 5px 9px #01080f;
+                    background-color: #020D19;
+                }
+            }
+
+            button {
+                cursor: pointer;
+                padding: 10px 50px;
+                color: white;
+                border-radius: 10px;
+                border: none;
+                outline: none;
+                background-color: #020D19;
+                box-shadow: -5px -5px 9px #031120, 5px 5px 9px #01080f;
+
+            }
+        }
+        
+
+    }
+
+    @media (width < 840px) {
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+
+        header {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 90%;
+            p {
+                width: 80%;
+            }
+        }
+
+        .wrapper {
+            justify-content: center;
+                align-items: center;
+            width: 90%;
+            form{
+                margin: 30px auto;
+                justify-content: center;
+                /* align-items: center; */
+
+                textarea {
+                    max-width: 80%;
+                }
+
+            }
+            
+        }
+        
+    }
+
+}
