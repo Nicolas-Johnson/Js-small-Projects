@@ -1,11 +1,10 @@
 const scriptUrl = 'https://script.google.com/macros/s/AKfycbyGq9dLylN0NLyx_1x3im0fSaTgE7x_flskJpTrk1Q_BDtWTLcRHyp-TrQ63ak9MnaR1g/exec';
+import { username, password, server } from "./secrets.js";
 
 const name = document.getElementById('name').value;
 const email = document.getElementById('email').value;
 const text = document.getElementById('message').value;
-const username = 'nicolasssousa2011@gmail.com';
-const password = 'A3E8C84D4967D38CEE57A55B554002D7BBF2';
-const server = 'smtp.elasticemail.com';
+
 const port = '2525'
 const body = `<h1>${name}</h1><br><h1>${email}</h1><br><p>${text}</p>`;
 
