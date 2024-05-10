@@ -7,6 +7,7 @@
     <title>Forms</title>
 </head>
 <body>
+    <div id="canvas3d"></div>
     <header>
         <h1>Forms</h1>
         <p>In this studi case we will be creating a form tht sends an e-mail to some one and saves the data on a Google Sheet</p>
@@ -14,18 +15,20 @@
     <main class="wrapper">
         <form method="post" name="contact">
             <label for="name">Name<br>
-                <input name="name" type="name" id="name" placeholder="Your Name">
+                <input name="name" type="name" id="name" placeholder="Your Name" required>
             </label>
             <label for="email">E-mail<br>
-                <input name="email" type="email" id="email" placeholder="email@example.com">
+                <input name="email" type="email" id="email" placeholder="email@example.com" required>
             </label>
             <label for="message">Message<br>
-                <textarea name="message" rows="5" cols="30" id="message">Write your message here
+                <textarea name="message" rows="5" cols="30" id="message" required>Write your message here
                 </textarea>
             </label>
             <button type="submit" value="submit" id="submit">Send</button>
         </form>
     </main>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
     <script type="module" src="main.js"></script>
 </body>
 </html>
