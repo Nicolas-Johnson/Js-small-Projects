@@ -1,5 +1,6 @@
-const scriptUrl = 'https://script.google.com/macros/s/AKfycbyGq9dLylN0NLyx_1x3im0fSaTgE7x_flskJpTrk1Q_BDtWTLcRHyp-TrQ63ak9MnaR1g/exec';
 import { username, password, server } from "./secrets.js";
+
+const scriptUrl = 'https://script.google.com/macros/s/AKfycbyGq9dLylN0NLyx_1x3im0fSaTgE7x_flskJpTrk1Q_BDtWTLcRHyp-TrQ63ak9MnaR1g/exec';
 
 const name = document.getElementById('name').value;
 const email = document.getElementById('email').value;
